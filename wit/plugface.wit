@@ -1,0 +1,20 @@
+package newsboy:plugface@0.1.0;
+
+interface host {
+  log: func(msg: string);
+}
+
+interface plug {
+  record plug-meta {
+    name: string,
+    version: string,
+  }
+
+  version: func() -> plug-meta;
+}
+
+world plug-world {
+  import host;
+  
+  export plug;
+}
